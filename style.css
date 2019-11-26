@@ -1,0 +1,34 @@
+.top {
+    height: 10%;
+}
+
+.top2 {
+    height: 30%;
+}
+
+.bot {
+    height: 90%;
+}
+
+.bot2 {
+    height: 70%;
+}
+
+.left {
+    display: inline-block;
+    width: 80%;
+    height: 100%;
+    float: left
+}
+
+.right {
+    display: inline-block;
+    width: 19%;
+    height: 100%;
+}
+
+html, body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
