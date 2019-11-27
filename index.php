@@ -37,8 +37,10 @@
 								  <option value="" selected="">Seleccione una curva</option> 
 								  <option value="1">Bézier</option>
 								  <option value="2">Hermite</option>
-								  <option value="3">Splines</option>
-								  <option value="4">Catmulll-Rom splines</option>
+								  <option value="3">Lagrange Curve</option>
+								  <option value="4">Uniform Cubic B-Spline</option>
+								  <option value="5">Grau K B-Spline</option>								  
+								  <option value="6">Catmulll-Rom splines</option>
 								</select>								
 					    </div>
 					    <div class="col-6">

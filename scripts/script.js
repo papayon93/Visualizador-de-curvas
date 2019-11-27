@@ -36,6 +36,7 @@ void main() {
 
 let program;
 let posicionesIniciais = [];
+let posicionesOrdenadas = [];
 let colorInicial = [];
 let colores = {
   ponto: [ 1, 1, 1, 1 ],
@@ -59,14 +60,14 @@ function main() {
   // posicionesIniciais = [[ -0.9, 0.9, 0, 1 ],[ 0.9, 0.9, 0, 1 ]];
   posicionesIniciais = [
     [ 0.0, 0.0, 0, 1 ],
-    [ 0.0, 0.5, 0, 1 ],
-    [ 0.5, 0.5, 0, 1 ],
-    [ 0.5, 0.0, 0, 1 ],
+    [ 0.3, 0.0, 0, 1 ],
+    [ 0.6, 0.3, 0, 1 ],
+    // [ 0.5, 0.0, 0, 1 ],
   ];
   colorInicial.push(colores.ponto)
-  colorInicial.push(colores.tangente)
   colorInicial.push(colores.ponto)
-  colorInicial.push(colores.tangente)
+  colorInicial.push(colores.ponto)
+  // colorInicial.push(colores.tangente)
   // look up where the vertex data needs to go.
   // const positionAttributeLocation = gl.getAttribLocation(program, "a_position");
   // const colorAttributeLocation = gl.getAttribLocation(program, "a_color");
@@ -181,7 +182,10 @@ function drawSceneNotErase(pos,color) {
   gl.useProgram(program);
 
   let vao1 = gl.createVertexArray();
-  drawPoints(vao1,posicionesIniciais,colorInicial)
+  if(curva == 3)
+    drawPoints(vao1,posicionesOrdenadas,colorInicial)
+  else
+    drawPoints(vao1,posicionesIniciais,colorInicial)
 
   let vao2 = gl.createVertexArray();
   drawPoints(vao2,pos,color)
@@ -192,6 +196,10 @@ function drawSceneNotErase(pos,color) {
     primitiveType = gl.LINE_STRIP;
   else if(curva == 2)
     primitiveType = gl.LINES;
+  else if(curva == 3)
+    primitiveType = gl.LINE_STRIP;
+  else if(curva == 4)
+    primitiveType = gl.LINE_STRIP;
   count = posicionesIniciais.length;
   gl.drawArrays(primitiveType, 0, count);  
 

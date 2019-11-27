@@ -12,6 +12,20 @@ const Hermite = [
   [ 1 , 0 , 0 , 0 ],
 ]
 
+const CubicBSpline = [
+  [-1 , 3 ,-3 , 1 ],
+  [ 3 ,-6 , 3 , 0 ],
+  [-3 , 0 , 3 , 0 ],
+  [ 1 , 4 , 1 , 0 ],
+]
+
+const NaturalCubic = [
+  [-1 , 3 ,-3 , 1 ],
+  [ 3 ,-6 , 3 , 0 ],
+  [-3 , 0 , 3 , 0 ],
+  [ 1 , 4 , 1 , 0 ],
+]
+
 const mouse_click = function (event) {
   if(verticeSeleccionado != -1 && estado == estados.verticeSeleccionado){    
     estado = estados.curvaDesenhada;
@@ -67,8 +81,15 @@ const mouse_click = function (event) {
       else{
         colorInicial.splice(verticeProcurado-1,2)
         posicionesIniciais.splice(verticeProcurado-1,2)
-      }
-      
+      }      
+    }
+    else if(curva == 3){
+      colorInicial.splice(verticeProcurado,1)
+      posicionesIniciais.splice(verticeProcurado,1)
+    }
+    else if(curva == 4){
+      colorInicial.splice(verticeProcurado,1)
+      posicionesIniciais.splice(verticeProcurado,1)
     }
     
     if(posicionesIniciais.length > 1)
