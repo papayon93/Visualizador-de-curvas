@@ -91,7 +91,10 @@ const mouse_click = function (event) {
       colorInicial.splice(verticeProcurado,1)
       posicionesIniciais.splice(verticeProcurado,1)
     }
-    
+    else if(curva == 5){
+      colorInicial.splice(verticeProcurado,1)
+      posicionesIniciais.splice(verticeProcurado,1)
+    }
     if(posicionesIniciais.length > 1)
       desenharCurva()
     else
@@ -103,6 +106,7 @@ const mouse_click = function (event) {
 };
 
 var scheduled = false, lastEvent;
+var scheduled2 = false;
 
 const mouse_dragged = function (event) {
   lastEvent = event;
@@ -177,14 +181,48 @@ const changeSelect = function(){
   curva = document.getElementById("selectCurva").value;
   if(curva != ""){
     estado = estados.curvaSeleccionada;
-    $("#instrucciones").html("Faça um click na area para desenhar um ponto"); 
+    $("#instrucciones").html("Clique na área para desenhar um ponto"); 
     if(posicionesIniciais.length > 1){
       desenharCurva();
+    }
+    if(curva == 4){
+      $("#inputGrau").fadeIn();
+      $("#numberGrau").fadeIn();
+    }
+    else{
+      $("#inputGrau").fadeOut();
+      $("#numberGrau").fadeOut();
+    }
+    if(curva == 5){
+      $("#inputAlpha").fadeIn();
+      $("#numberAlpha").fadeIn();
+      $("#rangeAlpha").fadeIn();
+    }
+    else{
+      $("#inputAlpha").fadeOut();
+      $("#numberAlpha").fadeOut();
+      $("#rangeAlpha").fadeOut();
     }
   }
   else{
     estado = estados.esperandoCurva;
     $("#instrucciones").html("Escolha una curva");
+  }
+}
+
+const changeRange = function(){
+  if (!scheduled2) {
+    scheduled2 = true;
+    setTimeout(function() {
+      scheduled2 = false;
+      const x = parseInt(document.getElementById("rangeAlpha").value);
+      const x2 = Math.round(x * 5.1)
+      $("#numberAlpha").val((x2-10)/100)
+      $("#instrucciones").html("Clique na área para desenhar um ponto"); 
+      if(posicionesIniciais.length > 1){
+        desenharCurva();
+      }
+    }, 50);
   }
 }
 

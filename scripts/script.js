@@ -41,6 +41,7 @@ let colorInicial = [];
 let colores = {
   ponto: [ 1, 1, 1, 1 ],
   desenho: [ 1, 0, 0, 1 ],
+  desenho2: [ 0, 0, 1, 1 ],
   escolherPonto: [ 1, 0, 1, 1 ],
   pontoEscolhido: [ 0, 1, 0, 1 ],
   tangente: [ 1, 0.5, 0, 1 ],
@@ -50,6 +51,8 @@ let verticeProcurado = -1;
 
 let primitiveType;
 let count;
+let tipoColor = 0;
+let grau = 2;
 
 function main() {
   // Get A WebGL context
@@ -59,11 +62,18 @@ function main() {
 
   // posicionesIniciais = [[ -0.9, 0.9, 0, 1 ],[ 0.9, 0.9, 0, 1 ]];
   posicionesIniciais = [
-    [ 0.0, 0.0, 0, 1 ],
-    [ 0.3, 0.0, 0, 1 ],
-    [ 0.6, 0.3, 0, 1 ],
-    // [ 0.5, 0.0, 0, 1 ],
+    [ -0.3, -0.2, 0, 1 ],
+    [ -0.2, -0.2, 0, 1 ],
+    [ -0.1, -0.2, 0, 1 ],
+    [ 0.0, 0.5, 0, 1 ],
+    [ 0.1, -0.2, 0, 1 ],
+    [ 0.2, -0.2, 0, 1 ],
+    [ 0.3, -0.2, 0, 1 ],
   ];
+  colorInicial.push(colores.ponto)
+  colorInicial.push(colores.ponto)
+  colorInicial.push(colores.ponto)
+  colorInicial.push(colores.ponto)
   colorInicial.push(colores.ponto)
   colorInicial.push(colores.ponto)
   colorInicial.push(colores.ponto)
@@ -183,7 +193,7 @@ function drawSceneNotErase(pos,color) {
 
   let vao1 = gl.createVertexArray();
   if(curva == 3)
-    drawPoints(vao1,posicionesOrdenadas,colorInicial)
+    drawPoints(vao1,posicionesIniciais,colorInicial)
   else
     drawPoints(vao1,posicionesIniciais,colorInicial)
 
@@ -199,6 +209,8 @@ function drawSceneNotErase(pos,color) {
   else if(curva == 3)
     primitiveType = gl.LINE_STRIP;
   else if(curva == 4)
+    primitiveType = gl.LINE_STRIP;
+  else if(curva == 5)
     primitiveType = gl.LINE_STRIP;
   count = posicionesIniciais.length;
   gl.drawArrays(primitiveType, 0, count);  

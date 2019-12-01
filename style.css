@@ -3,7 +3,8 @@
 }
 
 .top2 {
-    height: 30%;
+    height: 50%;
+    overflow: auto;
 }
 
 .bot {
@@ -11,7 +12,8 @@
 }
 
 .bot2 {
-    height: 70%;
+    height: 50%;
+    overflow: auto;
 }
 
 .left {
@@ -25,6 +27,7 @@
     display: inline-block;
     width: 19%;
     height: 100%;
+    overflow: auto;
 }
 
 html, body {

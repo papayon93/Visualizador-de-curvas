@@ -324,12 +324,13 @@ function mulVV(vetorA,vetorB){
 }
 
 function getColor() {
-  // Pick 2 random colors.
-  var r = Math.random();
-  var b = Math.random();
-  var g = Math.random();
-  return colores.desenho;
-  return [r,b,g,1]
+  tipoColor = !tipoColor;
+  if(tipoColor == 0){
+    return colores.desenho;
+  }
+  else{
+    return colores.desenho2;
+  }
 }
 
 function getDistancia(P1,P2) {
