@@ -1,5 +1,8 @@
 'use strict';
 const gl = document.querySelector('#c').getContext('webgl2');
+if (!gl) {
+  alert("WebGl2 não suportado")
+}
 
 const vs = `#version 300 es
 
