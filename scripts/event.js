@@ -127,7 +127,7 @@ const mouse_dragged = function (event) {
         let point = MatrixXVetor(VtoW,[pX, pY, pZ, 1]);
         for (var i = 0; i < posicionesIniciais.length; i++) {
           const dis = getDistancia(point,posicionesIniciais[i])
-          if(dis < 0.015){
+          if(dis < 0.05){
             achei = true;
             colorInicial[i] = colores.escolherPonto
             verticeProcurado = i;

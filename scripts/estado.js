@@ -137,8 +137,8 @@ const desenharCurva = function(){
 		// 	desenharCurvaCubicBSpline(posicionesIniciais)		
 		// }
 		else if(curva == 4){			
+			grau = parseInt($("#numberGrau").val()) + 1
 			if(estado == estados.curvaSeleccionada || estado == estados.esperandoCurva || estado == estados.curvaDesenhada){
-				grau = parseInt($("#numberGrau").val()) + 1
 				if(posicionesIniciais.length < 2){
 					$("#instrucciones").html("É necessário no mínimo 2 pontos, Desenhe mais pontos na área cinza");
 					return
@@ -158,8 +158,8 @@ const desenharCurva = function(){
 			desenharCurvaNKCubicBSpline(posicionesIniciais,grau)
 		}
 		else if(curva == 5){			
+			grau = parseFloat($("#numberAlpha").val())
 			if(estado == estados.curvaSeleccionada || estado == estados.esperandoCurva || estado == estados.curvaDesenhada){
-				grau = parseFloat($("#numberAlpha").val())
 				if(posicionesIniciais.length < 2){
 					$("#instrucciones").html("É necessário no mínimo 2 pontos, Desenhe mais pontos na área cinza");
 					return
